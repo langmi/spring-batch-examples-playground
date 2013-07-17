@@ -15,6 +15,7 @@
  */
 package de.langmi.spring.batch.examples.playground.file.multiresourcepartitioner;
 
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
@@ -26,6 +27,12 @@ public class FiltersFoldersMultiResourcePartitionerTest {
 
     @Test
     public void testSimple() throws Exception {
-        FiltersFoldersMultiResourcePartitioner mrp = new FiltersFoldersMultiResourcePartitioner("src/test/resources/", "input");
+        try {
+            FiltersFoldersMultiResourcePartitioner mrp = new FiltersFoldersMultiResourcePartitioner("src/test/resources/", "input");
+            assertNotNull(mrp);
+        } catch (Exception ex) {
+            fail();
+            throw ex;
+        }
     }
 }
