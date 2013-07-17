@@ -52,7 +52,7 @@ public class SimpleJobConfigurationManualTest {
         Map<String, JobParameter> jobParametersMap = new HashMap<String, JobParameter>();
         jobParametersMap.put("time", new JobParameter(System.currentTimeMillis()));
         jobParametersMap.put("input.file", new JobParameter("file:src/test/resources/input/input.txt"));
-        jobParametersMap.put("output.file", new JobParameter("file:target/test-outputs/simple/output.txt"));
+        jobParametersMap.put("output.file", new JobParameter("file:target/test-outputs/simple-manual/output.txt"));
 
         // launch the job
         JobExecution jobExecution = launcher.run(job, new JobParameters(jobParametersMap));
