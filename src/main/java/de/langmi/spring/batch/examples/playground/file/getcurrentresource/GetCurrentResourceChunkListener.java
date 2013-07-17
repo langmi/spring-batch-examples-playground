@@ -22,6 +22,7 @@ import org.springframework.batch.core.ChunkListener;
 import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.StepExecutionListener;
+import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.item.file.MultiResourceItemReader;
 
 /**
@@ -61,7 +62,7 @@ public class GetCurrentResourceChunkListener implements ChunkListener, StepExecu
     }
 
     @Override
-    public void beforeChunk() {
+    public void beforeChunk(ChunkContext cc) {
         if (proxy instanceof Advised) {
             try {
                 Advised advised = (Advised) proxy;
@@ -82,7 +83,10 @@ public class GetCurrentResourceChunkListener implements ChunkListener, StepExecu
     }
 
     @Override
-    public void afterChunk() {
-        // no-op
+    public void afterChunk(ChunkContext cc) {
+    }
+
+    @Override
+    public void afterChunkError(ChunkContext cc) {
     }
 }
