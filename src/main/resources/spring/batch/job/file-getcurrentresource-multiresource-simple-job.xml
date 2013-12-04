@@ -82,7 +82,6 @@
     <bean id="getCurrentResourceChunkListener" 
           class="de.langmi.spring.batch.examples.playground.file.getcurrentresource.GetCurrentResourceChunkListener">
         <property name="proxy" ref ="itemReader" />
-        <property name="test" ref ="itemReader" />
     </bean>
 
 </beans>

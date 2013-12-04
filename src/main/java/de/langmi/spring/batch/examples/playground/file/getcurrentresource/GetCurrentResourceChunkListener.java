@@ -40,12 +40,7 @@ public class GetCurrentResourceChunkListener implements ChunkListener, StepExecu
 
     private StepExecution stepExecution;
     private Object proxy;
-    private List<String> fileNames = new ArrayList<String>();
-    private MultiResourceItemReader test;
-
-    public void setTest(MultiResourceItemReader test) {
-        this.test = test;
-    }
+    private final List<String> fileNames = new ArrayList<>();
 
     public void setProxy(Object mrir) {
         this.proxy = mrir;

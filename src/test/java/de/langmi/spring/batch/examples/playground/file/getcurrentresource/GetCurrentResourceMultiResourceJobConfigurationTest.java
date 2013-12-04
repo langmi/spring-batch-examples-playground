@@ -17,7 +17,6 @@ package de.langmi.spring.batch.examples.playground.file.getcurrentresource;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Ignore;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,7 +41,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
     "classpath*:spring/batch/job/file-getcurrentresource-multiresource-simple-job.xml",
     "classpath*:spring/batch/setup/**/*.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
-@Ignore
 public class GetCurrentResourceMultiResourceJobConfigurationTest {
 
     /** Logger. */
@@ -54,11 +52,12 @@ public class GetCurrentResourceMultiResourceJobConfigurationTest {
     @Autowired
     private JobLauncherTestUtils jobLauncherTestUtils;
 
-    /** Launch Test. */
+    /** Launch Test.
+     * @throws java.lang.Exception */
     @Test
     public void launchJob() throws Exception {
         // Job parameters
-        Map<String, JobParameter> jobParametersMap = new HashMap<String, JobParameter>();
+        Map<String, JobParameter> jobParametersMap = new HashMap<>();
         jobParametersMap.put("time", new JobParameter(System.currentTimeMillis()));
         jobParametersMap.put("input.file.pattern", new JobParameter("file:src/test/resources/input/getcurrentresource/*.txt"));
         jobParametersMap.put("output.file", new JobParameter("file:target/test-outputs/getcurrentresource/output.txt"));
