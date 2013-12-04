@@ -41,12 +41,6 @@
           p:transactionManager-ref="transactionManager" />
           
     <!-- provides step scope, not needed, existence of xmlns for spring batch is enough -->
-    <!-- p:proxyTargetClass="true" to make it possible to access step scoped proxy
-         targets, e.g. a MultiResourceItemReader which getCurrentResource() method
-         is not available through an interface so you have to access the 
-         target behind a step scoped proxy MultiResourceItemReader 
-         
-         how to get it working with namespace? -->
-<!--    <bean class="org.springframework.batch.core.scope.StepScope" p:proxyTargetClass="true" />-->
+    <!-- <bean class="org.springframework.batch.core.scope.StepScope" /> -->
     
 </beans>
